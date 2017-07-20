@@ -46,7 +46,7 @@ class GetRecoverContainer extends Component {
   }
 
   handleSignInClick() {
-    this.props.router.toLogin();
+    this.props.navigation.goBack();
   }
 
   handleRecoverClick() {
