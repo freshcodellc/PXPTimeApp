@@ -1,10 +1,10 @@
 import { TabNavigator } from 'react-navigation'
 
-import TimerContainer from '~/containers/Timer/TimerContainer'
+import TimerNavigator from '~/TimerNavigator'
 
 export default MainTabNavigator = TabNavigator({
   Timer: {
-    screen: TimerContainer,
+    screen: TimerNavigator,
   }
 }, {
   tabBarOptions: {

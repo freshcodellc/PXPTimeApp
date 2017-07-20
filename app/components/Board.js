@@ -1,8 +1,7 @@
-import React, {
-  Component,
+import React, { Component, PropTypes } from 'react'
+import {
   Dimensions,
   Image,
-  PropTypes,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -15,8 +14,8 @@ const propTypes = {
 };
 
 class Card extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -25,7 +24,7 @@ class Card extends Component {
     return (
       <TouchableOpacity style={styles.selectListItem} onPress={this.handleClick}>
         { selected &&
-          <Image style={styles.selectedIcon} resizeMode="contain" source={require('./images/selectedIcon.png')} />
+          <Image style={styles.selectedIcon} resizeMode="contain" source={require('~/assets/images/selectedIcon.png')} />
         }
         { !selected &&
           <View style={styles.selectedIcon}></View>
@@ -43,7 +42,7 @@ class Card extends Component {
 }
 
 const { width, height } = Dimensions.get('window');
-import { colors } from '../constants/colors';
+import { colors } from '~/constants/colors';
 
 const styles = StyleSheet.create({
   selectListItem: {

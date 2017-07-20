@@ -1,13 +1,14 @@
-import React, { Component, PropTypes, View, Text, TouchableOpacity } from 'react-native';
-import { styles } from '../assets/StyleSheet';
+import React, { Component, PropTypes } from 'react'
+import { View, Text, TouchableOpacity } from 'react-native';
+import { styles } from '~/assets/StyleSheet';
 
 const propTypes = {
   board: PropTypes.object.isRequired
 };
 
 class CardTitle extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {

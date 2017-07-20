@@ -1,4 +1,6 @@
 export AppContainer from './App/AppContainer'
+export BoardsContainer from './Boards/BoardsContainer'
+export CardsContainer from './Cards/CardsContainer'
 export GetRecoverContainer from './GetRecover/GetRecoverContainer'
 export LoginContainer from './Login/LoginContainer'
 export SignUpContainer from './SignUp/SignUpContainer'

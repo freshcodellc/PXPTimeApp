@@ -242,13 +242,13 @@ class TimerContainer extends Component {
   }
 
   handleBoardSelectClick() {
-    this.props.router.toBoards();
+    this.props.navigation.navigate('Boards');
   }
 
   handleCardSelectClick() {
     const { selectedBoard } = this.props.boards;
     if (!_.isUndefined(selectedBoard.public)) {
-      this.props.router.toCards();
+      this.props.navigation.navigate('Cards');
     } else {
       Alert.alert(
         'Warning',
@@ -302,7 +302,7 @@ class TimerContainer extends Component {
       )
     });
     if (filteredEntries.length > 0) {
-      return <View/>;
+      return entriesList;
     } else {
       return (
         <View style={styles.noEntriesWrap}>

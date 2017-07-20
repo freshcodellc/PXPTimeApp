@@ -1,4 +1,4 @@
-import { BLUE, MAIN, GREEN, RED } from '../constants/colors';
+import { BLUE, MAIN, GREEN, RED } from '~/constants/colors';
 import { StyleSheet } from 'react-native';
 
 export const buttonStyles = StyleSheet.create({
