@@ -53,7 +53,7 @@ export const loginWithCreds = (email, password, navigate) => {
   }
 }
 
-export const loginWithKey = (key, router) => {
+export const loginWithKey = (key, navigate) => {
   return (dispatch) => {
     dispatch(toggleIsLoading(true));
     BoardService.req.listBoards(key)
@@ -62,7 +62,7 @@ export const loginWithKey = (key, router) => {
         AsyncStorage.getItem('apikey').then((value) => {
           dispatch(storeApiKey(value));
           dispatch(toggleIsLoading(false));
-          router.toRootTab();
+          navigate('TabNavigator');
         }).done()
       }).done();
     })
@@ -73,7 +73,7 @@ export const loginWithKey = (key, router) => {
   }
 }
 
-export const createUser = (user, router) => {
+export const createUser = (user, navigate) => {
   return (dispatch) => {
     dispatch(toggleIsLoading(true));
     LoginService.req.createUser(user)
@@ -83,7 +83,7 @@ export const createUser = (user, router) => {
           dispatch(storeApiKey(value));
           dispatch(loginSuccess(response));
           dispatch(toggleIsLoading(false));
-          router.toRootTab();
+          navigate('TabNavigator');
         }).done()
       }).done();
     })
@@ -100,14 +100,14 @@ const userClear = () => {
   }
 }
 
-export const clearUser = (router) => {
+export const clearUser = (navigation) => {
   return (dispatch) => {
     AsyncStorage.removeItem('apikey')
     .then(() => {
       dispatch(userClear());
     })
     .then(() => {
-      router.toLogin();
+      navigation.dispatch({ type: 'Navigation/NAVIGATE', routeName: 'Login' });
     }).done();
   }
 }

@@ -157,11 +157,11 @@ class SignUpContainer extends Component {
   }
 
   handleLoginClick() {
-    this.props.router.pop();
+    this.props.navigation.goBack();
   }
 
   handleSubmitUser() {
-    const { dispatch, router } = this.props;
+    const { dispatch } = this.props;
     let invalidFields = 0;
     let user = this.state;
     let numFields = Object.keys(this.state).length;
@@ -172,7 +172,7 @@ class SignUpContainer extends Component {
       }
       if (i >= numFields-1) {
         if (invalidFields === 0) {
-          dispatch(createUser(user, router));
+          dispatch(createUser(user, this.props.navigation.navigate));
         } else {
           Alert.alert(
             'Error',

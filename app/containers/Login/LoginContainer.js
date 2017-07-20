@@ -101,7 +101,7 @@ class LoginContainer extends Component {
 
   handleLoginClick() {
     if (this.state.showTokenLogin) {
-      this.props.dispatch(loginWithKey(this.state.tokenInput, this.props.router))
+      this.props.dispatch(loginWithKey(this.state.tokenInput, this.props.navigation.navigate))
     } else {
       const { email, password } = this.state;
       this.props.dispatch(loginWithCreds(email, password, this.props.navigation.navigate));
