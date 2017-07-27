@@ -12,11 +12,11 @@ const store = createStoreWithMiddleware(reducer);
 
 class Root extends Component {
   constructor() {
-    console.log(AppContainer);
     super();
     this.state = {
       isLoading: true
     };
+    console.disableYellowBox = true;
   }
 
   render() {
