@@ -74,7 +74,9 @@ class TimerContainer extends Component {
     this.setState({
       isRunning: false
     });
-    let startDate = moment().format('YYYY-MM-DD');
+    // let startDate = moment().format('YYYY-MM-DD');
+    // let endDate = moment().add(2, 'days').format('YYYY-MM-DD');
+    let startDate = moment().day('Monday').hours(0).minutes(0).seconds(0).format('YYYY-MM-DD');
     let endDate = moment().add(2, 'days').format('YYYY-MM-DD');
 
     const { dispatch, user } = this.props;
