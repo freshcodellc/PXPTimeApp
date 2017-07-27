@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
   sectionTotal: {
     width: width-40,
     height: (height-60-49-40)/4,
-    backgroundColor: '#AAAAAA',
+    backgroundColor: '#3590F3',
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   sectionBilled: {
     width: width-40,
     height: (height-60-49-40)/4,
-    backgroundColor: '#008DE7',
+    backgroundColor: colors.PXP_ORANGE,
     alignItems: 'center',
     justifyContent: 'center'
   },

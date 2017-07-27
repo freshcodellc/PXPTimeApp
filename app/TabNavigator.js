@@ -60,9 +60,12 @@ export default MainTabNavigator = TabNavigator({
   }
 }, {
   tabBarOptions: {
+    showIcon: true,
     activeTintColor: colors.LIGHTER_GREY,
     inactiveTintColor: colors.BLACK,
-    tabBarPosition: 'bottom',
+    indicatorStyle: {
+      backgroundColor: colors.WHITE,
+    },
     style: {
       backgroundColor: colors.PXP_GREY,
     },
@@ -70,4 +73,5 @@ export default MainTabNavigator = TabNavigator({
       fontSize: 14,
     },
   },
+  tabBarPosition: 'bottom',
 });
