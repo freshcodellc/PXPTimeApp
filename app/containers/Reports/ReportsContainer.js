@@ -16,6 +16,8 @@ import {
 class InvoicesContainer extends Component {
   constructor() {
     super();
+
+    this.handleClientClick = this.handleClientClick.bind(this);
   }
 
   componentWillMount() {
@@ -34,15 +36,15 @@ class InvoicesContainer extends Component {
     return num.toFixed(n).replace(new RegExp(re, 'g'), '$&,');
   }
 
+  handleClientClick() {
+    this.props.navigation.navigate('Clients');
+  }
+
   render() {
     let total = 0;
-    let open = 0;
     let billed = 0;
     let paid = 0;
     let html = this.props.invoices.results.map((invoice, index) => {
-      if (invoice.public.status === 'open') {
-        open = open + parseInt(invoice.public.amount, 10);
-      }
       if (invoice.public.status === 'billed') {
         billed = billed + parseInt(invoice.public.amount, 10);
       }
@@ -59,21 +61,19 @@ class InvoicesContainer extends Component {
           </View>
         </View>
         <View style={styles.contentContainer}>
-          <View style={styles.sectionOpen}>
-            <Text style={styles.reportLabel}>Open</Text>
-            <Text style={styles.reportAmount}>${this.formatCurrency(open)}</Text>
+          <View style={styles.sectionTotal}>
+            <Text style={styles.reportLabel}>YTD</Text>
+            <Text style={styles.reportAmount}>${this.formatCurrency(total)}</Text>
           </View>
-          <View style={styles.sectionBilled}>
-              <Text style={styles.reportLabel}>Billed</Text>
-              <Text style={styles.reportAmount}>${this.formatCurrency(billed)}</Text>
-          </View>
+          <TouchableOpacity onPress={this.handleClientClick}>
+            <View style={styles.sectionBilled}>
+                <Text style={styles.reportLabel}>Outstanding</Text>
+                <Text style={styles.reportAmount}>${this.formatCurrency(billed)}</Text>
+            </View>
+          </TouchableOpacity>
           <View style={styles.sectionPaid}>
             <Text style={styles.reportLabel}>Paid</Text>
             <Text style={styles.reportAmount}>${this.formatCurrency(paid)}</Text>
-          </View>
-          <View style={styles.sectionTotal}>
-            <Text style={styles.reportLabel}>Total</Text>
-            <Text style={styles.reportAmount}>${this.formatCurrency(total)}</Text>
           </View>
         </View>
       </View>

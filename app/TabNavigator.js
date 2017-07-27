@@ -1,7 +1,7 @@
 import { TabNavigator } from 'react-navigation'
 
 import TimerNavigator from '~/TimerNavigator'
-import ReportsContainer from '~/containers/Reports/ReportsContainer'
+import ReportsNavigator from '~/ReportsNavigator'
 import WeeklyContainer from '~/containers/Weekly/WeeklyContainer'
 import SettingsContainer from '~/containers/Settings/SettingsContainer'
 
@@ -13,7 +13,7 @@ export default MainTabNavigator = TabNavigator({
     screen: WeeklyContainer,
   },
   Reports: {
-    screen: ReportsContainer,
+    screen: ReportsNavigator,
   },
   Settings: {
     screen: SettingsContainer,
