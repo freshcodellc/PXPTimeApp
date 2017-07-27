@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import _ from 'lodash';
 import { listAllInvoices } from '~/actions/InvoiceActions';
+import Icon from 'react-native-vector-icons/Entypo';
 import {
   Dimensions,
   ScrollView,
@@ -10,9 +11,11 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  View
+  View,
+  Button
 } from 'react-native';
 
+import { colors } from '~/constants/colors';
 
 class ClientReportsContainer extends Component {
   constructor() {
@@ -36,6 +39,10 @@ class ClientReportsContainer extends Component {
   }
 
   render() {
+    // Back Button
+    const { goBack } = this.props.navigation;
+
+    // Get Invoice Data
     let invoiceList = this.props.invoices.results;
     let filteredList = invoiceList.filter((obj) => {
         if (obj.public.status === 'billed') return obj;
@@ -60,14 +67,17 @@ class ClientReportsContainer extends Component {
     return (
       <View style={styles.mainContainer}>
         <View style={styles.navWrapper}>
+          <TouchableOpacity style={styles.goBackButton} onPress={() => goBack()}>
+            <Icon name="chevron-small-left" size={30} color={colors.LIGHTER_GREY} />
+          </TouchableOpacity>
           <View style={styles.navTitle}>
             <Text style={styles.navTitleText}>Outstanding</Text>
           </View>
         </View>
         <View style={styles.contentContainer}>
-            <ScrollView>
-                 {invoiceList} 
-            </ScrollView>
+          <ScrollView>
+            {invoiceList} 
+          </ScrollView>
         </View>
       </View>
     );
@@ -75,11 +85,17 @@ class ClientReportsContainer extends Component {
 }
 
 const { width, height } = Dimensions.get('window');
-import { colors } from '~/constants/colors';
 let cardLenth = ((width - 50));
 let cardHeight = ((height/3) - 100);
 
 const styles = StyleSheet.create({
+  goBackButton: {
+    position: 'absolute',
+    top: 25,
+    left: 10,
+    color: 'red',
+    backgroundColor: 'transparent'
+  },
   invoiceCard: {
     height: cardHeight / 2,
     width: cardLenth,
