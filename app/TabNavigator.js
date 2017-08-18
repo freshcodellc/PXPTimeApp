@@ -1,6 +1,7 @@
 import React from 'react'
 import { Image } from 'react-native'
 import { TabNavigator } from 'react-navigation'
+import { Platform } from 'react-native'
 
 import TimerNavigator from '~/TimerNavigator'
 import ReportsNavigator from '~/ReportsNavigator'
@@ -72,6 +73,12 @@ export default MainTabNavigator = TabNavigator({
     labelStyle: {
       fontSize: 14,
     },
+    showLabel: (Platform.OS !== 'android'),
+    iconStyle: {
+      width: 35,
+      height: 35
+    }
   },
   tabBarPosition: 'bottom',
+  swipeEnabled: false
 });

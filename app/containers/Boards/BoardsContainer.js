@@ -44,8 +44,8 @@ class BoardsContainer extends Component {
             <Text style={styles.navTitleText}>Boards</Text>
           </View>
         </View>
-        <View style={styles.boardListWrapper}>
-          <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <ScrollView style={styles.scrollContainer}>
+          <View style={styles.boardListWrapper}>
             {
               this.props.boards.results.map((board, index) => {
                 let selected = false;
@@ -57,8 +57,8 @@ class BoardsContainer extends Component {
                 )
               })
             }
-          </ScrollView>
-        </View>
+          </View>
+        </ScrollView>
       </View>
     );
   }
@@ -66,7 +66,7 @@ class BoardsContainer extends Component {
   handleBoardClick(board) {
     const { dispatch } = this.props;
     dispatch(selectBoard(board));
-    this.props.navigation.goBack();
+    this.props.navigation.navigate('Cards');
 
   }
 }
@@ -110,15 +110,16 @@ const styles = StyleSheet.create({
   },
   boardListWrapper: {
     width: width,
-    height: height-72,
+    height: height - 152,
     alignItems: 'center',
     justifyContent: 'center',
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 72
+    borderTopWidth: .5,
+    borderColor: colors.PXP_GREY
   },
   scrollContainer: {
-    width: width
+    width: width,
+    position: 'absolute',
+    top: 60
   }
 });
 

@@ -34,8 +34,8 @@ const baseEntry = {
 class WeekContainer extends Component {
   constructor() {
     super();
-    UIManager.setLayoutAnimationEnabledExperimental &&
-    UIManager.setLayoutAnimationEnabledExperimental(true);
+    // UIManager.setLayoutAnimationEnabledExperimental &&
+    // UIManager.setLayoutAnimationEnabledExperimental(true);
   }
 
   componentWillMount() {
@@ -67,7 +67,7 @@ class WeekContainer extends Component {
     for (let i = 0; i < 7; i++) {
       weeklyEntries[i] = getDayEntries(results, moment(this.state.startDate).add(i, 'd'))
     }
-    LayoutAnimation.spring();
+    // LayoutAnimation.spring();
     return (
       <View style={styles.mainContainer}>
         <StatusBar barStyle="light-content"/>

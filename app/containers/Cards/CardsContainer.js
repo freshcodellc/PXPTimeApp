@@ -124,7 +124,7 @@ class CardsContainer extends Component {
 
   handleCardClick(card) {
     this.props.dispatch(selectCard(card));
-    this.props.navigation.goBack();
+    this.props.navigation.navigate('Timer');
   }
 }
 
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   },
   searchInputWrap: {
     position: 'absolute',
-    top: 60,
+    top: 45,
     width: width,
     height: 70
   },

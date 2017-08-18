@@ -13,8 +13,11 @@ import {
   Alert,
   AppState,
   AsyncStorage,
+  Container,
+  Content,
   Dimensions,
   Image,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -383,11 +386,11 @@ class TimerContainer extends Component {
             <View style={styles.dayBar}>
               <Text style={styles.dayBarText}>TODAY</Text>
             </View>
-            <ScrollView>
-              <View>
+              <ScrollView style={{marginBottom: Platform.OS == 'android' ? 35 : 0}}>
+            <View style={{ flex: 1 }}>
                 { this.getEntries() }
-              </View>
-            </ScrollView>
+            </View>
+              </ScrollView>
           </View>
         </View>
     );
@@ -580,6 +583,13 @@ const styles = StyleSheet.create({
   entriesText: {
     fontSize: 12,
     color: colors.WHITE
+  },
+  scroll: {
+    // flex: 1
+    height: '80%'
+  },
+  view: {
+    flex: 1
   }
 });
 
